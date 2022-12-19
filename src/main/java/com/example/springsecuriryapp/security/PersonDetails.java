@@ -1,15 +1,11 @@
 package com.example.springsecuriryapp.security;
 
-import com.example.springsecuriryapp.model.Person;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-@RequiredArgsConstructor
-public class PersonDetails implements UserDetails {
 
-    private final Person person;
+public class PersonDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -17,39 +13,31 @@ public class PersonDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return person.getPassword();
+        return null;
     }
 
     @Override
     public String getUsername() {
-        return person.getUsername();
+        return null;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
-    }
-
-    /**
-     * Required to get authenticated user data
-     * @return
-     */
-    public Person getPerson(){
-        return this.person;
+        return false;
     }
 }
